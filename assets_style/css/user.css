@@ -1,0 +1,123 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap');
+
+/* Reset dasar */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body */
+body {
+    font-family: 'Exo 2', Arial, sans-serif;
+    background: #0000CD;
+    background-size: cover;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Wrapper untuk posisi footer */
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 600px; /* Ubah dari 400px */
+    background-color: rgba(245, 245, 245, 0.95);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    margin-top: 40px;
+}
+
+/* ---- Logo ---- */
+.logo-img {
+    width: 50px;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px auto; /* Atas, kanan, bawah, kiri */
+}
+
+/* Heading */
+h3.text-center {
+    font-weight: 700;
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* Input & Button */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="file"],
+.btn-submit,
+.btn-batal {
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Tombol */
+.btn-submit {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #218838;
+}
+
+.btn-batal {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-batal:hover {
+    background-color: #c82333;
+}
+
+.centered-text {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 10px;
+}
