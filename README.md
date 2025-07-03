@@ -1,36 +1,52 @@
-## Deskripsi Aplikasi
-Sistem Informasi Perpustakaan Berbasis Web merupakan sistem yang dapat digunakan untuk mengelola berbagai aktifitas di perpustakaan, mulai dari penyimpanan databuku hingga proses peminjaman.
-## DONASI : <a href="https://saweria.co/fauzan1892">https://saweria.co/fauzan1892</a>
-### Source Blog :  <a href="https://www.codekop.com/read/source-code-sistem-informasi-perpustakaan-dengan-codeigniter-3-61.html" target="_blank">
-https://www.codekop.com/read/source-code-sistem-informasi-perpustakaan-dengan-codeigniter-3-61.html</a>
+# 📚 Sistem Informasi Perpustakaan **Pustaka Kita** – Desa Pepedan  
+### 💼 Proyek Praktik Kerja Magang  
+### 🧑‍🎓 Mahasiswa Universitas Muhammadiyah Brebes
 
-### Beli versi terbaru nya di link berikut :  <a href="https://www.codekop.com/products/source-code-aplikasi-sistem-informasi-perpustakaan-berbasis-website-5.html" target="_blank">https://www.codekop.com/products/source-code-aplikasi-sistem-informasi-perpustakaan-berbasis-website-5.html</a>
+Sistem Informasi Perpustakaan **Pustaka Kita** merupakan aplikasi berbasis web yang dikembangkan sebagai bagian dari **Proyek Magang Mahasiswa Universitas Muhammadiyah Brebes**.  
+Aplikasi ini bertujuan untuk membantu proses digitalisasi layanan perpustakaan di **Desa Pepedan**, terutama dalam hal pengelolaan data buku dan peminjaman koleksi.
 
-### * Untuk Reuploader Source Code tolong cantumin sumber juga ya, terima kasih :)
+---
 
-##  Framework
-* Codeigniter 3.1.11
-* Template Admin LTE  Versi 2.4
+## 🎯 Tujuan Proyek
 
-## Penggunaan Login Akses
+- Meningkatkan efisiensi pengelolaan perpustakaan desa.
+- Memberikan pengalaman kerja nyata bagi mahasiswa melalui pengembangan sistem informasi.
+- Mendukung literasi masyarakat Desa Pepedan melalui sistem berbasis teknologi.
+- Menjadi produk nyata kontribusi mahasiswa untuk pengabdian kepada masyarakat.
 
-<b>Petugas Perpus : </b>
-<br/>
-Username : anang
-<br/>
-Password : 123
+---
 
-<b>Anggota Perpus :</b>
-<br/>
-Username : fauzan
-<br/>
-Password : 123
+## 🛠 Teknologi yang Digunakan
 
-** Jika ada issues atau revisi atau menambahkan fitur silahkan pull request di repository ini
+- **Framework**: CodeIgniter 3.1.11  
+- **Tampilan UI**: AdminLTE v2.4  
+- **Bahasa Pemrograman**: PHP, HTML, CSS, JavaScript  
+- **Database**: MySQL
 
-## Contributors
-<a href="https://fauzan.codekop.com/"> Fauzan Falah</a>
+---
 
-My Blog : <a href="https://www.codekop.com/"> Codekop.com</a>
+## 🔐 Informasi Login Demo
 
-Gunakan Aplikasi dengan bijak, dan selamat belajar
+### 👨‍💼 Petugas Perpustakaan
+- **Username**: `faqihmawardi5`  
+- **Password**: `123`
+
+### 👨‍🎓 Anggota Perpustakaan
+- **Username**: `zal`  
+- **Password**: `zal`
+
+---
+
+## 🏫 Tentang Proyek Magang
+
+Proyek ini merupakan hasil dari **Praktik Kerja Magang (PKM)** Oleh Mahasiswa: **Muh. Faqih Mawardi (NIM: 22.01.0.0051)**
+
+> **Universitas Muhammadiyah Brebes**  
+> **Fakultas Sain Teknologi dan Kesehatan**
+> **Program Studi Teknik Informatika**  
+> **Tahun: 2025**
+
+---
+
+> 📢 Gunakan aplikasi ini dengan bijak.  
+> Semoga bermanfaat bagi kemajuan literasi digital dan pelayanan perpustakaan di **Desa Pepedan**.
