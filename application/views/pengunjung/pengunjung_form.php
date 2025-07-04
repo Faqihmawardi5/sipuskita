@@ -17,6 +17,8 @@
         <?php endif; ?>
 
         <form method="post" action="<?= site_url('pengunjung/simpan'); ?>">
+        <!-- CSRF Token jika aktif -->
+        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
             <div class="form-group">
                 <label>Nama</label>
                 <input type="text" name="nama" class="form-control" required>
