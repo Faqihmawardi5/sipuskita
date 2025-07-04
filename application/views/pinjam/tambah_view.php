@@ -18,7 +18,8 @@
 			    <!-- /.box-header -->
 			    <div class="box-body">
                     <form action="<?php echo base_url('transaksi/prosespinjam');?>" method="POST" enctype="multipart/form-data">
-						
+						<!-- CSRF Token jika aktif -->
+                        <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
 						<div class="row">
 							<div class="col-sm-5">
 								<table class="table table-striped">
