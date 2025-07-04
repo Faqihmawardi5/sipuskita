@@ -10,6 +10,8 @@
                 <h3 class="box-title">Form Edit</h3>
             </div>
             <form action="<?= base_url('data/kegiatanproses') ?>" method="post" enctype="multipart/form-data">
+            <!-- CSRF Token jika aktif -->
+            <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>" />
                 <input type="hidden" name="edit" value="<?= $edit_kegiatan->id_kegiatan ?>">
                 <div class="box-body">
                     <div class="form-group">
