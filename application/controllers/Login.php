@@ -2,63 +2,78 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
-	function __construct(){
-	 parent::__construct();
-	 	//validasi jika user belum login
-        $this->data['CI'] =& get_instance();
-        $this->load->helper(array('form', 'url'));
-        $this->load->model('M_login');
-        
-	 }
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
-	{
-		$this->data['title_web'] = 'Login | Sistem Informasi Perpustakaan';
-		$this->load->view('login_view',$this->data);
-	}
+    
+    public function __construct() {
+        parent::__construct();
+        $this->load->helper(['form', 'url']);
+        $this->load->model('M_Login');
+    }
 
-    public function auth()
-    {
-        $user = htmlspecialchars($this->input->post('user',TRUE),ENT_QUOTES);
-        $pass = htmlspecialchars($this->input->post('pass',TRUE),ENT_QUOTES);
-        // auth
-        $proses_login = $this->db->query("SELECT * FROM tbl_login WHERE user='$user' AND pass = md5('$pass')");
-        $row = $proses_login->num_rows();
-        if($row > 0)
-        {
-            $hasil_login = $proses_login->row_array();
+    public function index() {
+        // Jika sudah login, langsung ke dashboard
+        if ($this->session->userdata('masuk_perpus') === TRUE) {
+            redirect('dashboard');
+        }
 
-            // create session
-            $this->session->set_userdata('masuk_perpus',TRUE);
-            $this->session->set_userdata('level',$hasil_login['level']);
-            $this->session->set_userdata('ses_id',$hasil_login['id_login']);
-            $this->session->set_userdata('anggota_id',$hasil_login['anggota_id']);
+        $this->data['title_web'] = 'Login | Sistem Informasi Perpustakaan';
+        $this->load->view('login_view', $this->data);
+    }
 
-            echo '<script>window.location="'.base_url().'dashboard";</script>';
-        }else{
+    public function auth() {
+        $user = trim($this->input->post('user', TRUE));
+        $pass = $this->input->post('pass', TRUE);
 
-            echo '<script>alert("Login Gagal, Periksa Kembali Username dan Password Anda");
-            window.location="'.base_url().'"</script>';
+        if (empty($user) || empty($pass)) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-warning">Username dan password wajib diisi.</div>');
+            redirect('login');
+        }
+
+        // Cari user dari model
+        $query = $this->db->get_where('tbl_login', ['user' => $user], 1);
+        if ($query->num_rows() === 1) {
+            $data = $query->row_array();
+            $hashed_pass = $data['pass'];
+            $user_id = $data['id_login'];
+
+            $is_valid = false;
+
+            if (strlen($hashed_pass) > 32) {
+                // Password sudah di-hash
+                $is_valid = password_verify($pass, $hashed_pass);
+            } else {
+                // Password masih MD5
+                if (md5($pass) === $hashed_pass) {
+                    $is_valid = true;
+
+                    // Ubah ke password_hash() untuk keamanan
+                    $hash_baru = password_hash($pass, PASSWORD_DEFAULT);
+                    $this->db->update('tbl_login', ['pass' => $hash_baru], ['id_login' => $user_id]);
+                }
+            }
+
+            if ($is_valid) {
+                // Set session
+                $this->session->set_userdata([
+                    'masuk_perpus' => TRUE,
+                    'ses_id'       => $data['id_login'],
+                    'level'        => $data['level'],
+                    'anggota_id'   => $data['anggota_id'],
+                    'nama'         => $data['nama']
+                ]);
+
+                redirect('dashboard');
+            } else {
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger">Password salah.</div>');
+                redirect('login');
+            }
+        } else {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger">User tidak ditemukan.</div>');
+            redirect('login');
         }
     }
 
-    public function logout()
-    {
+    public function logout() {
         $this->session->sess_destroy();
-        echo '<script>window.location="'.base_url().'";</script>';
+        redirect('login');
     }
 }
