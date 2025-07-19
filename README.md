@@ -29,11 +29,11 @@ Aplikasi ini bertujuan untuk membantu proses digitalisasi layanan perpustakaan d
 
 ### 👨‍💼 Petugas Perpustakaan
 - **Username**: `faqihmawardi5`  
-- **Password**: `123`
+- **Password**: `123456`
 
 ### 👨‍🎓 Anggota Perpustakaan
 - **Username**: `zal`  
-- **Password**: `zal`
+- **Password**: `123456`
 
 ---
 
